@@ -6,7 +6,7 @@
 package car.interfaces;
 
 import car.objects.Car;
-import car.objects.Client;
+import car.objects.Customer;
 import car.objects.Reservation;
 import java.util.List;
 import javax.jws.WebMethod;
@@ -48,15 +48,15 @@ public interface AdminInterface {
     boolean removeReservation(int id);
     
     @WebMethod
-    List<Client> getClients();
+    List<Customer> getClients();
     @WebMethod
-    List<Client> serachClients(String name, String surname);
+    List<Customer> serachClients(String name, String surname);
     @WebMethod
-    Client getClient(int clientId);
+    Customer getClient(int clientId);
     @WebMethod
-    boolean addClient(Client client);
+    boolean addClient(Customer client);
     @WebMethod
-    boolean editClient(Client client);
+    boolean editClient(Customer client);
     @WebMethod
     boolean removeClient(int clientId);
     @WebMethod

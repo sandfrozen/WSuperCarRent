@@ -7,7 +7,7 @@ package car.impl;
 
 import car.interfaces.AdminInterface;
 import car.objects.Car;
-import car.objects.Client;
+import car.objects.Customer;
 import car.objects.Reservation;
 import java.util.List;
 import javax.jws.WebService;
@@ -81,27 +81,27 @@ public class Admin implements AdminInterface {
     }
 
     @Override
-    public List<Client> getClients() {
+    public List<Customer> getClients() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Client> serachClients(String name, String surname) {
+    public List<Customer> serachClients(String name, String surname) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Client getClient(int clientId) {
+    public Customer getClient(int clientId) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean addClient(Client client) {
+    public boolean addClient(Customer client) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean editClient(Client client) {
+    public boolean editClient(Customer client) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

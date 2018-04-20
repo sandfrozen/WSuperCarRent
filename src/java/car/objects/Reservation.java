@@ -17,29 +17,28 @@ import java.sql.Timestamp;
 public class Reservation {
     
     public int id;
-    public int idclient;
-    public int idcar;
+    public int car_id;
+    public int customer_id;
     public Timestamp from;
     public Timestamp to;
 
-    public Reservation(int id, int idclient, int idcar, Timestamp from, Timestamp to) {
-        this.id = id;
-        this.idclient = idclient;
-        this.idcar = idcar;
+    public Reservation(int car_id, int customer_id, Timestamp from, Timestamp to) {
+        this.car_id = car_id;
+        this.customer_id = customer_id;
         this.from = from;
         this.to = to;
     }
     
     public Reservation(ResultSet rs) throws SQLException {
-        this.id = rs.getInt("idreservation");
-        this.idclient = rs.getInt("idclient");
-        this.idcar = rs.getInt("idcar");
+        this.id = rs.getInt("id");
+        this.car_id = rs.getInt("car_id");
+        this.customer_id = rs.getInt("customer_id");
         this.from = rs.getTimestamp("from");
         this.to =  rs.getTimestamp("to");
     }
     
     @Override
     public String toString() {
-        return this.id + " " + this.idclient + " " + this.idcar + " " + this.from + " " + this.to;
+        return this.id + " " + this.car_id + " " + this.customer_id + " " + this.from + " " + this.to;
     }
 }

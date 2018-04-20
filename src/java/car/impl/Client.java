@@ -20,12 +20,12 @@ import javax.jws.WebService;
 public class Client implements ClientInterface {
 
     @Override
-    public boolean addAccount(car.objects.Client client) {
+    public boolean addAccount(car.objects.Customer client) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean editAccount(car.objects.Client client) {
+    public boolean editAccount(car.objects.Customer client) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

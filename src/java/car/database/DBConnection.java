@@ -17,10 +17,11 @@ import java.sql.Statement;
  */
 public class DBConnection {
 
-    public static final String URL = "jdbc:mysql://localhost:3306/cars";
-    public static final String USER = "root";
-    public static final String PASS = "root";
+    private static final String URL = "jdbc:mysql://localhost:3306/cars";
+    private static final String USER = "root";
+    private static final String PASS = "root";
     private static Connection connection = null;
+    protected static Statement stmt = null;
 
     private DBConnection() {
     }
@@ -48,6 +49,7 @@ public class DBConnection {
     }
 
     public static void main(String[] args) throws SQLException {
+        /* main for tests */
         connection = DBConnection.getConnection();
         System.out.println("Connected.");
         connection.close();

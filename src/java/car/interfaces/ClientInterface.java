@@ -6,7 +6,7 @@
 package car.interfaces;
 
 import car.objects.Car;
-import car.objects.Client;
+import car.objects.Customer;
 import car.objects.Reservation;
 import java.util.List;
 import javax.jws.WebMethod;
@@ -22,9 +22,9 @@ import javax.jws.soap.SOAPBinding;
 public interface ClientInterface {
     
     @WebMethod
-    boolean addAccount(Client client);
+    boolean addAccount(Customer client);
     @WebMethod
-    boolean editAccount(Client client);
+    boolean editAccount(Customer client);
     
     @WebMethod
     boolean newRes(Reservation res);

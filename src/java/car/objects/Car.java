@@ -27,7 +27,7 @@ public class Car {
     
 
     public Car(ResultSet rs) throws SQLException {
-        this.id = rs.getInt("idcar");
+        this.id = rs.getInt("id");
         this.brand = rs.getString("brand");
         this.model = rs.getString("model");
         this.doors = rs.getInt("doors");
@@ -40,8 +40,7 @@ public class Car {
         this.imageUrl = rs.getString("imageUrl");
     }
 
-    public Car(int id, String brand, String model, int doors, int fuelCap, String fuelType, int range, String gearbox, int gears, float dayCost, String imageUrl) {
-        this.id = id;
+    public Car(String brand, String model, int doors, int fuelCap, String fuelType, int range, String gearbox, int gears, float dayCost, String imageUrl) {
         this.brand = brand;
         this.model = model;
         this.doors = doors;

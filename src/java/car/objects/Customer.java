@@ -12,20 +12,21 @@ import java.sql.SQLException;
  *
  * @author tomek.buslowski
  */
-public class Client {
+public class Customer {
     
     public int id;
     public String name;
     public String surname;
     public String mail;
 
-    public Client(String name, String surname, String mail) {
+    public Customer(String name, String surname, String mail) {
         this.name = name;
         this.surname = surname;
         this.mail = mail;
     }
 
-    public Client(ResultSet rs) throws SQLException {
+    public Customer(ResultSet rs) throws SQLException {
+        this.id = rs.getInt("id");
         this.name = rs.getString("name");
         this.surname = rs.getString("surname");
         this.mail = rs.getString("mail");
@@ -33,7 +34,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return this.name + " " + this.surname + " " + this.mail;
+        return this.id + " " + this.name + " " + this.surname + " " + this.mail;
     }
     
     
