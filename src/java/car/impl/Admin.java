@@ -5,6 +5,9 @@
  */
 package car.impl;
 
+import car.database.DBCars;
+import car.database.DBCustomers;
+import car.database.DBReservations;
 import car.interfaces.AdminInterface;
 import car.objects.Car;
 import car.objects.Customer;
@@ -16,103 +19,104 @@ import javax.jws.WebService;
  *
  * @author tomek.buslowski
  */
-
 @WebService(endpointInterface = "car.interfaces.AdminInterface")
 public class Admin implements AdminInterface {
 
     @Override
     public List<Car> getCars() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBCars.getCars();
     }
 
     @Override
     public List<Car> searchCars(String brand, String model, int doors, String fuelType, int fuleCap, String engine, int range, String gearbox, int gears, int dayCost) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // change
+        return DBCars.getCars();
     }
 
     @Override
     public Car getCar(int carId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBCars.getCar(carId);
     }
 
     @Override
     public boolean addCar(Car car) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBCars.addCar(car);
     }
 
     @Override
     public boolean editCar(Car car) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBCars.editCar(car);
     }
 
     @Override
     public boolean removeCar(int carId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBCars.removeCar(carId);
     }
 
     @Override
     public List<Reservation> carReservations(int carId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBReservations.getCarReservations(carId);
     }
 
     @Override
     public List<Reservation> getReservations() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBReservations.getReservations();
     }
 
     @Override
     public Reservation getReservation(int resId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBReservations.getReservation(resId);
     }
 
     @Override
     public boolean addReservation(Reservation res) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBReservations.addReservation(res);
     }
 
     @Override
     public boolean editReservation(Reservation res) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBReservations.editReservation(res);
     }
 
     @Override
     public boolean removeReservation(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return DBReservations.removeReservation(id);
     }
 
     @Override
-    public List<Customer> getClients() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Customer> getCustomers() {
+        return DBCustomers.getCustomers();
     }
 
     @Override
-    public List<Customer> serachClients(String name, String surname) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Customer> serachCustomers(String name, String surname) {
+        // change
+        return DBCustomers.getCustomers();
     }
 
     @Override
-    public Customer getClient(int clientId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Customer getCustomer(int customerId) {
+        return DBCustomers.getCustomer(customerId);
     }
 
     @Override
-    public boolean addClient(Customer client) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean addCustomer(Customer customer) {
+        return DBCustomers.addCustomer(customer);
     }
 
     @Override
-    public boolean editClient(Customer client) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean editCustomer(Customer customer) {
+        return DBCustomers.editCustomer(customer);
     }
 
     @Override
-    public boolean removeClient(int clientId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean removeCustomer(int customerId) {
+        return DBCustomers.removeCustomer(customerId);
     }
 
     @Override
-    public List<Reservation> clientReservations(int clientId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Reservation> customerReservations(int clientId) {
+        return DBReservations.getCustomerReservations(clientId);
     }
-    
+
 }

@@ -22,22 +22,22 @@ import javax.jws.soap.SOAPBinding;
 public interface ClientInterface {
     
     @WebMethod
-    boolean addAccount(Customer client);
+    boolean addAccount(Customer customer);
     @WebMethod
-    boolean editAccount(Customer client);
+    boolean editAccount(Customer customer);
     
     @WebMethod
-    boolean newRes(Reservation res);
+    boolean newReservation(Reservation res);
     @WebMethod
-    boolean editRes(Reservation res);
+    boolean editReservation(Reservation res);
     @WebMethod
-    boolean delRes(Reservation res);
+    boolean removeReservation(int resId);
     
     @WebMethod
-    List<Reservation> getCars();
+    List<Car> getCars();
     @WebMethod
     List<Car> searchCars(String brand, String model, int doors, String fuelType, int fuleCap, String engine, int range, String gearbox, int gears, int dayCost);
     @WebMethod
-    List<Reservation> getClientRes(int clientId);
+    List<Reservation> getCustomerReservation(int customerId);
     
 }

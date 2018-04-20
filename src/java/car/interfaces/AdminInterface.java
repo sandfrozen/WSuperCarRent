@@ -48,17 +48,17 @@ public interface AdminInterface {
     boolean removeReservation(int id);
     
     @WebMethod
-    List<Customer> getClients();
+    List<Customer> getCustomers();
     @WebMethod
-    List<Customer> serachClients(String name, String surname);
+    List<Customer> serachCustomers(String name, String surname);
     @WebMethod
-    Customer getClient(int clientId);
+    Customer getCustomer(int customerId);
     @WebMethod
-    boolean addClient(Customer client);
+    boolean addCustomer(Customer customer);
     @WebMethod
-    boolean editClient(Customer client);
+    boolean editCustomer(Customer customer);
     @WebMethod
-    boolean removeClient(int clientId);
+    boolean removeCustomer(int customerId);
     @WebMethod
-    List<Reservation> clientReservations(int clientId);
+    List<Reservation> customerReservations(int clientId);
 }

@@ -5,8 +5,12 @@
  */
 package car.impl;
 
+import car.database.DBCars;
+import car.database.DBCustomers;
+import car.database.DBReservations;
 import car.interfaces.ClientInterface;
 import car.objects.Car;
+import car.objects.Customer;
 import car.objects.Reservation;
 import java.util.List;
 import javax.jws.WebService;
@@ -20,43 +24,44 @@ import javax.jws.WebService;
 public class Client implements ClientInterface {
 
     @Override
-    public boolean addAccount(car.objects.Customer client) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean addAccount(Customer customer) {
+        return DBCustomers.addCustomer(customer);
     }
 
     @Override
-    public boolean editAccount(car.objects.Customer client) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean editAccount(Customer customer) {
+        return DBCustomers.editCustomer(customer);
     }
 
     @Override
-    public boolean newRes(Reservation res) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean newReservation(Reservation res) {
+        return DBReservations.addReservation(res);
     }
 
     @Override
-    public boolean editRes(Reservation res) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean editReservation(Reservation res) {
+        return DBReservations.editReservation(res);
     }
 
     @Override
-    public boolean delRes(Reservation res) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean removeReservation(int resId) {
+        return DBReservations.removeReservation(resId);
     }
 
     @Override
-    public List<Reservation> getCars() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Car> getCars() {
+        return DBCars.getCars();
     }
 
     @Override
     public List<Car> searchCars(String brand, String model, int doors, String fuelType, int fuleCap, String engine, int range, String gearbox, int gears, int dayCost) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        // change implmentation
+        return DBCars.getCars();
     }
 
     @Override
-    public List<Reservation> getClientRes(int clientId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Reservation> getCustomerReservation(int customerId) {
+        return DBReservations.getCustomerReservations(customerId);
     }
     
 }
