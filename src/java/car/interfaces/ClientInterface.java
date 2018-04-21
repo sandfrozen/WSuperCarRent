@@ -22,6 +22,12 @@ import javax.jws.soap.SOAPBinding;
 public interface ClientInterface {
     
     @WebMethod
+    String greet();
+    
+    @WebMethod
+    boolean authenticateCustomer();
+    
+    @WebMethod
     boolean addAccount(Customer customer);
     @WebMethod
     boolean editAccount(Customer customer);

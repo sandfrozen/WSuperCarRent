@@ -5,6 +5,7 @@
  */
 package car.objects;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -12,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author tomek.buslowski
  */
-public class Car {
+public class Car implements Serializable {
     public int id;
     public String brand;
     public String model;
@@ -24,7 +25,6 @@ public class Car {
     public int gears;
     public float dayCost;
     public String imageUrl;
-    
 
     public Car(ResultSet rs) throws SQLException {
         this.id = rs.getInt("id");

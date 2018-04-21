@@ -5,6 +5,7 @@
  */
 package car.objects;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -12,7 +13,7 @@ import java.sql.SQLException;
  *
  * @author tomek.buslowski
  */
-public class Customer {
+public class Customer implements Serializable {
     
     public int id;
     public String name;

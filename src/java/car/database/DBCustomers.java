@@ -18,6 +18,23 @@ import java.util.List;
  * @author tomek.buslowski
  */
 public class DBCustomers extends DBAccess {
+    
+    // Customer Authentication
+    // in reality return name for Customer mail
+    public static String getPasswordForMail(String mail) {
+        try {
+            conn = DBConnection.getConnection();
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT cars.Customers.name FROM Customers WHERE mail='"+mail+"'");
+            
+            while (rs.next()) {
+                return rs.getString("name");
+            }
+        } catch (SQLException ex) {
+            System.out.println("getPasswordForEmail() : " + ex.toString());
+        }
+        return null;
+    }
 
     public static List<Customer> getCustomers() {
         List<Customer> res = new LinkedList<>();
@@ -112,7 +129,7 @@ public class DBCustomers extends DBAccess {
     }
 
     public static void main(String[] args) throws SQLException {
-        Customer c = new Customer("Tomek33", "Tomek33", "tom33@asd.pl");
+//        Customer c = new Customer("Tomek33", "Tomek33", "tom33@asd.pl");
 //        if( DBCustomers.addCustomer(c)) {
 //            System.out.println("Dodano");
 //        }
@@ -120,10 +137,12 @@ public class DBCustomers extends DBAccess {
 //        if( DBCustomers.editCustomer(c)) {
 //            System.out.println("Edytowano");
 //        }
-        if (DBCustomers.removeCustomer(4)) {
-            System.out.println("Usunięto");
-        }
-        System.out.println(DBCustomers.getCustomers());
+//        if (DBCustomers.removeCustomer(4)) {
+//            System.out.println("Usunięto");
+//        }
+//        System.out.println(DBCustomers.getCustomers());
+
+        System.out.println(getPasswordForMail("asd@we.pl"));
     }
 
 }

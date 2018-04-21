@@ -152,7 +152,7 @@ public class DBReservations extends DBAccess {
         //res.id=3;
         //DBReservations.editReservation(res);
         //DBReservations.removeReservation(1);
-        System.out.println(DBReservations.getCarReservations(2));
+        System.out.println(DBReservations.getCustomerReservations(1));
         //System.out.println(DBReservations.getReservations());
         //System.out.println(DBReservations.getReservation(1));
     }

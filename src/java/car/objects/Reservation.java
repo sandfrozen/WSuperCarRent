@@ -5,7 +5,7 @@
  */
 package car.objects;
 
-import java.sql.Date;
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -14,7 +14,7 @@ import java.sql.Timestamp;
  *
  * @author tomek.buslowski
  */
-public class Reservation {
+public class Reservation implements Serializable {
     
     public int id;
     public int car_id;

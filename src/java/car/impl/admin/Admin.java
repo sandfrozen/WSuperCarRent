@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package car.impl;
+package car.impl.admin;
 
 import car.database.DBCars;
 import car.database.DBCustomers;
@@ -13,6 +13,7 @@ import car.objects.Car;
 import car.objects.Customer;
 import car.objects.Reservation;
 import java.util.List;
+import javax.jws.HandlerChain;
 import javax.jws.WebService;
 
 /**
@@ -20,6 +21,7 @@ import javax.jws.WebService;
  * @author tomek.buslowski
  */
 @WebService(endpointInterface = "car.interfaces.AdminInterface")
+@HandlerChain(file="handler-chain.xml")
 public class Admin implements AdminInterface {
 
     @Override
