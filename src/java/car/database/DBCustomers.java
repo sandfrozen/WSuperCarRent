@@ -20,15 +20,14 @@ import java.util.List;
 public class DBCustomers extends DBAccess {
     
     // Customer Authentication
-    // in reality return name for Customer mail
     public static String getPasswordForMail(String mail) {
         try {
             conn = DBConnection.getConnection();
             stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT cars.Customers.name FROM Customers WHERE mail='"+mail+"'");
+            ResultSet rs = stmt.executeQuery("SELECT cars.Customers.password FROM Customers WHERE mail='"+mail+"'");
             
             while (rs.next()) {
-                return rs.getString("name");
+                return rs.getString("password");
             }
         } catch (SQLException ex) {
             System.out.println("getPasswordForEmail() : " + ex.toString());
@@ -66,6 +65,21 @@ public class DBCustomers extends DBAccess {
         }
         return customer;
     }
+    
+    public static Customer getCustomer(String mail) {
+        Customer customer = null;
+        try {
+            conn = DBConnection.getConnection();
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Customers WHERE mail='" + mail + "'");
+            if (rs.next()) {
+                customer = new Customer(rs);
+            }
+        } catch (SQLException ex) {
+            System.out.println("getCustomer(String mail) : " + ex.toString());
+        }
+        return customer;
+    }
 
     public static boolean addCustomer(Customer customer) {
         try {
@@ -73,11 +87,12 @@ public class DBCustomers extends DBAccess {
             stmt = conn.createStatement();
 
             PreparedStatement ps = conn.prepareStatement("INSERT INTO Customers "
-                    + "(Customers.name, Customers.surname, Customers.mail) "
-                    + "VALUES (?, ?, ?)");
+                    + "(Customers.name, Customers.surname, Customers.mail, Customers.password) "
+                    + "VALUES (?, ?, ?, ?)");
             ps.setString(1, customer.name);
             ps.setString(2, customer.surname);
             ps.setString(3, customer.mail);
+            ps.setString(4, customer.password);
 
             int status = ps.executeUpdate();
             if (status == 1) {

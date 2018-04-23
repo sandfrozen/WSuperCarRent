@@ -11,11 +11,24 @@
     </session-config>
     
     <security-constraint>
-        <display-name>WebServiceSecurity</display-name>
+        <display-name>WebServiceSecurityClientService</display-name>
 
         <web-resource-collection>
-            <web-resource-name>Authorized users only</web-resource-name>
+            <web-resource-name>Authorized users only ClientService</web-resource-name>
             <url-pattern>/ClientService</url-pattern>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <display-name>WebServiceSecurityAdminService</display-name>
+
+        <web-resource-collection>
+            <web-resource-name>Authorized users only AdminService</web-resource-name>
             <url-pattern>/AdminService</url-pattern>
             <http-method>POST</http-method>
         </web-resource-collection>
@@ -27,14 +40,14 @@
         <user-data-constraint>
             <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
-    </security-constraint>  
+    </security-constraint>
 
     <!-- BASIC authorization -->
     <login-config>
         <auth-method>BASIC</auth-method>
     </login-config>
 
-    <!-- Definition of role -->
+    <!-- Definition of role --> 
     <security-role>
         <role-name>user</role-name>
     </security-role>

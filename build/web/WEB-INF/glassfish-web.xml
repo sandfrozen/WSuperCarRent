@@ -10,6 +10,6 @@ and open the template in the editor.
 <glassfish-web-app>
     <security-role-mapping>
         <role-name>user</role-name>
-        <group-name>wsusers</group-name>
+        <group-name>carusers</group-name>
     </security-role-mapping>
 </glassfish-web-app>

@@ -71,13 +71,13 @@ public class Admin implements AdminInterface {
     }
 
     @Override
-    public boolean addReservation(Reservation res) {
-        return DBReservations.addReservation(res);
+    public boolean newReservation(int car_id, int customer_id, String from, String to) {
+        return DBReservations.addReservation(car_id, customer_id, from, to);
     }
 
     @Override
-    public boolean editReservation(Reservation res) {
-        return DBReservations.editReservation(res);
+    public boolean editReservation(int id, int car_id, int customer_id, String from, String to) {
+        return DBReservations.editReservation(id, car_id, customer_id, from, to);
     }
 
     @Override

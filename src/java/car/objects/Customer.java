@@ -19,11 +19,13 @@ public class Customer implements Serializable {
     public String name;
     public String surname;
     public String mail;
+    public String password;
 
-    public Customer(String name, String surname, String mail) {
+    public Customer(String name, String surname, String mail, String password) {
         this.name = name;
         this.surname = surname;
         this.mail = mail;
+        this.password = password;
     }
 
     public Customer(ResultSet rs) throws SQLException {
@@ -31,6 +33,7 @@ public class Customer implements Serializable {
         this.name = rs.getString("name");
         this.surname = rs.getString("surname");
         this.mail = rs.getString("mail");
+        this.password = rs.getString("password");
     }
 
     @Override

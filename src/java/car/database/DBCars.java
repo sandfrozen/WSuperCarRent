@@ -49,6 +49,21 @@ public class DBCars extends DBAccess {
         }
         return car;
     }
+    
+    public static String getCarImage(int carId) {
+        String url = null;
+        try {
+            conn = DBConnection.getConnection();
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT imageUrl FROM Cars WHERE id=" + carId);
+            if (rs.next()) {
+                url = rs.getString("imageUrl");
+            }
+        } catch (SQLException ex) {
+            System.out.println("getCars() : " + ex.toString());
+        }
+        return url;
+    }
 
     public static boolean addCar(Car car) {
         try {
@@ -127,12 +142,12 @@ public class DBCars extends DBAccess {
 
     public static void main(String[] args) throws SQLException {
         // Main for Tests
-        Car car = new Car("WW", "Golf", 4, 50, "benzyna", 500, "automat", 5, (float) 49.99, "url");
-        car.id = 1;
+        //Car car = new Car("WW", "Golf", 4, 50, "benzyna", 500, "automat", 5, (float) 49.99, "url");
+        //car.id = 1;
         //DBCars.addCar(car);
         //DBCars.editCar(car);
-        DBCars.removeCar(3);
-        System.out.println(DBCars.getCars());
+        //DBCars.removeCar(3);
+        System.out.println(DBCars.getCarImage(1));
         //System.out.println(DBCars.getCar(1));
     }
 }

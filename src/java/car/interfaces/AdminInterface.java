@@ -41,9 +41,9 @@ public interface AdminInterface {
     @WebMethod
     Reservation getReservation(int resId);
     @WebMethod
-    boolean addReservation(Reservation res);
+    boolean newReservation(int car_id, int customer_id, String from, String to);
     @WebMethod
-    boolean editReservation(Reservation res);
+    boolean editReservation(int id, int car_id, int customer_id, String from, String to);
     @WebMethod
     boolean removeReservation(int id);
     
