@@ -9,7 +9,10 @@ import car.exceptions.InvalidReservationDateException;
 import car.objects.Car;
 import car.objects.Customer;
 import car.objects.Reservation;
+import com.itextpdf.text.Document;
 import java.awt.Image;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -57,4 +60,6 @@ public interface ClientInterface {
     @WebMethod
     List<Reservation> getCustomerReservations(int customerId);
     
+    @WebMethod
+    byte[] downloadPdf(int resId);
 }

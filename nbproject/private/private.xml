@@ -3,6 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group/>
-        <group name="WS SOAP"/>
+        <group name="WS SOAP">
+            <file>file:/C:/Users/tomek.buslowski/Documents/NetBeansProjects/WSuperCarRent/src/java/car/impl/admin/Admin.java</file>
+            <file>file:/C:/Users/tomek.buslowski/Documents/NetBeansProjects/WSuperCarRent/src/java/car/impl/client/Client.java</file>
+            <file>file:/C:/Users/tomek.buslowski/Documents/NetBeansProjects/WSuperCarRent/src/java/car/database/DBReservations.java</file>
+            <file>file:/C:/Users/tomek.buslowski/Documents/NetBeansProjects/WSuperCarRent/src/java/car/interfaces/ClientInterface.java</file>
+            <file>file:/C:/Users/tomek.buslowski/Documents/NetBeansProjects/WSuperCarRent/src/java/car/exceptions/InvalidReservationDateException.java</file>
+            <file>file:/C:/Users/tomek.buslowski/Documents/NetBeansProjects/WSuperCarRent/src/java/car/objects/Reservation.java</file>
+            <file>file:/C:/Users/tomek.buslowski/Documents/NetBeansProjects/WSuperCarRent/src/java/car/database/DBCars.java</file>
+        </group>
     </open-files>
 </project-private>

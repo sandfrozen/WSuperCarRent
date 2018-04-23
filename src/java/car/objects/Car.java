@@ -55,6 +55,10 @@ public class Car implements Serializable {
     
     @Override
     public String toString() {
-        return this.brand + " " + this.model + " " + this.doors;
+        return this.brand + " - " + this.model + " " + this.doors;
+    }
+    
+    public String toUpperCase() {
+        return this.brand.toUpperCase() + " " + this.model.toUpperCase();
     }
 }

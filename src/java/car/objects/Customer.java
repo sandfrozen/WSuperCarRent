@@ -41,5 +41,9 @@ public class Customer implements Serializable {
         return this.id + " " + this.name + " " + this.surname + " " + this.mail;
     }
     
+    public String toUppercase() {
+        return name.toUpperCase() + " " + surname.toUpperCase();
+    }
+    
     
 }

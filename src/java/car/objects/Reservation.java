@@ -42,4 +42,15 @@ public class Reservation implements Serializable {
     public String toString() {
         return this.id + " " + this.car_id + " " + this.customer_id + " " + this.from + " " + this.to;
     }
+    
+    public int days() {
+        Date f = Date.valueOf(from);
+        Date t = Date.valueOf(to);
+
+        int daysdiff=0;
+        long diff = t.getTime() - f.getTime();
+        long diffDays = diff / (24 * 60 * 60 * 1000)+1;
+        daysdiff = (int) diffDays;
+        return daysdiff;
+    }
 }

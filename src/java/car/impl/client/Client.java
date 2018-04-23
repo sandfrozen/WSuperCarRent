@@ -13,8 +13,17 @@ import car.interfaces.ClientInterface;
 import car.objects.Car;
 import car.objects.Customer;
 import car.objects.Reservation;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -28,6 +37,7 @@ import javax.xml.ws.WebServiceContext;
 import javax.jws.WebService;
 import javax.xml.ws.handler.MessageContext;
 import javax.xml.ws.soap.MTOM;
+
 
 /**
  *
@@ -181,11 +191,70 @@ public class Client implements ClientInterface {
         List<Reservation> res = DBReservations.getCustomerReservations(customerId);
         return res;
     }
+    
+    @Override
+    public byte[] downloadPdf(int resId) {
+        
+        Document document = new Document(PageSize.A4);
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        
+        try {
+            Font big = new Font(FontFamily.HELVETICA, 20);
+            Font regular = new Font(FontFamily.HELVETICA, 12);
+            Font bold = new Font(FontFamily.HELVETICA, 12, Font.BOLD);
+            
+            String name = "Reservation"+resId+".pdf";
+            PdfWriter.getInstance(document, stream);
+            PdfWriter.getInstance(document, new FileOutputStream(name));
+            document.open();
+            Paragraph paraSpaceDashed = new Paragraph("--------------------------------------------");
+            Paragraph paraSpace = new Paragraph(" ");
+            Paragraph para0 = new Paragraph("SUPER CAR RENT", big);
+            document.add(para0);
+            document.add(paraSpaceDashed);
+            Paragraph para = new Paragraph("Your Reservation Confirmation:", bold);
+            document.add(para);
+            para = new Paragraph("Reservation Number: " + resId, bold);
+            document.add(para);
+            document.add(paraSpace);
+            
+            Reservation res = DBReservations.getReservation(resId);
+            if( res == null ) return null;
+            Customer cus = DBCustomers.getCustomer(res.customer_id);
+            if( cus == null) return null;
+            Car car = DBCars.getCar(res.car_id);
+            if( car == null) return null;
+            
+            Paragraph para2 = new Paragraph("Customer: " + cus.toUppercase());
+            document.add(para2);
+            Paragraph para3 = new Paragraph("Car: " + car.toUpperCase());
+            document.add(para3);
+            Paragraph para4 = new Paragraph("From day: " + res.from);
+            document.add(para4);
+            Paragraph para5 = new Paragraph("To day: " + res.to);
+            document.add(para5);
+            Paragraph para6 = new Paragraph("Days: " + res.days());
+            document.add(para6);    
+            document.add(paraSpaceDashed);
+            Paragraph para7 = new Paragraph(String.format("Total cost: %.2f PLN", res.days()*car.dayCost), bold);
+            document.add(para7);
+            document.close();
+            
+            System.out.println("PDF crated!");
+            return stream.toByteArray();
+
+        } catch(Exception e) {
+            System.out.println("downloadPdf(int resId): \n" + e);
+        }
+
+        return null;
+    }
 
     public static void main(String[] args) throws SQLException {
         Client c = new Client();
-        System.out.println(c.downloadCarImage(3));
-        System.out.println(c.downloadCarImage(2));
-
+        //System.out.println(c.downloadCarImage(3));
+        //System.out.println(c.downloadCarImage(2));
+        
+        System.out.println(c.downloadPdf(1));
     }
 }
